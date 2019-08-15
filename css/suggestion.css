@@ -1,0 +1,211 @@
+@media (min-width: 320px) and (max-width: 478px) {
+
+    /*index*/
+    h4 {
+        line-height: 2rem;
+        color: #333;
+        font-family: Arial;
+        font-weight: normal;
+        margin-left: 0.5rem;
+    }
+
+    #main {
+        border: 0px solid #fff;
+        width: 100%;
+        height: 100%;
+        /*background-image: url("../img/main_1.png");*/
+        background-size: 100% 100%;
+        z-index: -100;
+    }
+
+    #top_box {
+        border: 0px solid #00ff00;
+        width: 100%;
+        height: 9%;
+        background-color: #557fd4;
+    }
+
+    .top_title_txt {
+        color: #fff;
+        font-size: 1.1rem;
+        margin-left: 0.2rem;
+        margin-top: 0.5rem;
+        float: left;
+        font-family: "Arial Black";
+        font-weight: lighter;
+    }
+
+    #main_content {
+        border: 0px solid #ff0000;
+        width: 100%;
+        height: 91%;
+        background-image: none;
+        background-color: #fff;
+    }
+
+    #fj {
+        border:0px solid #ff0000;
+        width: 80%;
+        height: 9.7rem;
+        margin: auto;
+        background-color: #fff;
+        -webkit-box-shadow: 1px 0px 15px #ffedf1;
+        margin-top: 0rem;
+    }
+     #txt {
+         border: 0px solid #ff0000;
+         width: 80%;
+         height: 1.2rem;
+         margin: auto;
+         /* -webkit-box-shadow: 1px 0px 15px #ffedf1; */
+         margin-top: 3rem;
+         color: #999999;
+         font-size: 0.8rem;
+     }
+
+    .tb_fj {
+        border: 0px solid #0BB20C;
+        width: 1.7rem;
+        height: 1.7rem;
+        float: left;
+        margin-top: 0.1rem;
+    }
+
+    .fj_input {
+        border: 0px solid #2C5FA4;
+        width: 12.1rem;
+        height: 2.1rem;
+        float: left;
+        margin-left: 0rem;
+        margin-left: 0.1rem;
+        font-size: 0.9rem;
+        color: #333;
+        outline: none;
+    }
+
+    #fj_time {
+        border: 0px solid #ff0000;
+        width: 80%;
+        height: 5.5rem;
+        margin: auto;
+        background-color: #fff;
+        -webkit-box-shadow: 1px 0px 15px #ffedf1;
+        margin-top: 1rem;
+    }
+
+    #fj_time_1 {
+        border: 0px solid #ff0000;
+        width: 80%;
+        height: 2.2rem;
+        margin: auto;
+        background-color: #fff;
+        -webkit-box-shadow: 1px 0px 15px #ffedf1;
+        margin-top: 1rem;
+    }
+
+    .tb_txt {
+        border: 0px solid #ff0000;
+        width: 11rem;
+        font-size: 0.8rem;
+        /*color: #ccc;*/
+        margin-top: 0rem;
+        margin-left: -0.55rem;
+        float: left;
+    }
+
+    .tb_txt_1 {
+        border: 0px solid #ff0000;
+        width: 11rem;
+        font-size: 0.9rem;
+        line-height: 1rem;
+        color: #333;
+        margin-top: 0.6rem;
+        margin-left: 0.1rem;
+        float: left;
+    }
+
+    .chose_box_1 {
+        border: 0px solid #ff0000;
+        width: 100%;
+        font-size: 0.7rem;
+        line-height: 0.8rem;
+        margin-top: 0.3rem;
+        margin-left: 0.4rem;
+        color: #2C5FA4;
+        float: left;
+        overflow: hidden;
+    }
+
+    .chose_box_2 {
+        border: 0px solid #ff0000;
+        width: 100%;
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+        margin-top: 0.1rem;
+        margin-left: 0.4rem;
+        color: #999999;
+        float: left;
+        overflow: hidden;
+    }
+
+    .chose_box_3 {
+        border: 0px solid #ff0000;
+        width: 100%;
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+        margin-top: 0.1rem;
+        margin-left: 0.4rem;
+        color: #999999;
+        float: left;
+        overflow: hidden;
+    }
+
+    .tb_add {
+        border: 0px solid #557fd4;
+        border-radius: 3rem 3rem 3rem 3rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        z-index: 1000;
+        float: left;
+        margin-top: 0.4rem;
+        background-image: url("../img/ad.png");
+        background-size: 100% 100%;
+        background-color: #557fd4;
+    }
+
+    #txt_box {
+        border: 0px solid #0BB20C;
+        width: 100%;
+        height: 1.6rem;
+    }
+
+    #chose_box {
+        border: 0px solid #0BB20C;
+        width: 100%;
+        height: 1.6rem;
+    }
+
+    #fj_btn {
+        border: 0px solid #ff0000;
+        width: 80%;
+        height: 2.5rem;
+        margin: auto;
+        /*background-color: #557fd4;*/
+        /*-webkit-box-shadow:1px 0px 15px #557fd4;*/
+        margin-top: 4rem;
+        border-radius: 0.5rem;
+    }
+
+    .btn_submit {
+        border: 0px solid #ff0000;
+        width: 100%;
+        height: 2.5rem;
+        margin: auto;
+        background-color: #557fd4;
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+    }
+
+
+}

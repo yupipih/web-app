@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>约八</title>
+    <link rel="stylesheet" href="css/add_group.css">
+    <link rel="stylesheet" href="css/weui.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <!-- 下拉 -->
+     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.select.js"></script>
+</head>
+
+<body ontouchstart>
+    <div id="main">
+        <div id="top_box">
+            <a href="index.html">
+                <div id="top_title">
+                    <img src="img/left.png" style="width: 1.3rem;height: 1.3rem;margin-left: 0.5rem;margin-top: 0.8rem;float: left">
+                    <div class="top_title_txt">新建约八</div>
+                </div>
+            </a>
+        </div>
+        <div id="main_content">
+            <div id="fj">
+                <div class="tb_fj"><img src="img/fj.png" style="width: 100%;height: 100%"></div>
+                <input type="text" class="fj_input" name="fj_name" placeholder="约八名称">
+            </div>
+            
+             
+
+            <div id="fj_time">
+                <div id="txt_box">
+                    <div class="tb_fj"><img src="img/datetime_1.png" style="width: 100%;height: 100%"></div>
+                    <div class="tb_txt">
+                        <div class="weui-cell">
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" id="time-format" type="text" value="2012年12月12日 12时13分">
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="tb_add"></div>-->
+                </div>
+                <!--<div id="chose_box">-->
+                <!--</div>-->
+            </div>
+
+            <div id="fj">
+                <div class="tb_fj"><img src="img/dh.png" style="width: 100%;height: 100%"></div>
+                <input type="text" class="fj_input" name="fj_name" placeholder="联系电话">
+            </div>
+           
+            <!-- <div id="fj">
+                <div id="txt_box">
+                    <div class="tb_fj"><img src="img/sj.png" style="width: 100%;height: 100%"></div>
+                     <input type="text" id="fj_input" class="fj_input" placeholder="约哪" >
+                    
+                </div>
+            </div> -->
+             <div id="fj">
+                <div id="txt_box">
+                    <div class="tb_fj"><img src="img/sj.png" style="width: 100%;height: 100%"></div>
+                     <input type="text" class="fj_input" name="fj_name" placeholder="预约人数">
+                </div>
+            </div>
+
+            <div id="icon-1"> 
+                <div class="tb_fj">
+                    <img src="img/place_1.png" style="width: 100%;height: 100%">
+                </div>
+            </div>
+             <input id="testInput" type="text" placeholder="约哪"/>
+            
+    
+                <a href="location.html">
+                    <div id="fj_place">
+                        <div class="tb_fj"><img src="img/dw.png" style="width: 100%;height: 100%"></div>
+                        <div class="value" id="chose_box_1"></div>
+
+                    </div>
+                </a>
+          
+          
+<!--            
+<a href="location.html">
+
+    <div id="fj_place">
+        <div class="tb_fj"><img src="img/place_1.png" style="width: 100%;height: 100%"></div>
+        <div class="value" id="chose_box_1"></div>
+
+    </div>
+</a> -->
+
+
+
+            <div id="fj_btn">
+                <a href="javascript:;" id='show-custom' class="weui-btn weui-btn_primary">提交</a>
+            </div>
+        </div>
+    </div>
+    <div id="time-container"></div>
+    <!-- <script src="js/fastclick.js"></script> -->
+    <script src="js/jquery-weui.js"></script>
+    <!-- <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script> -->
+    <!-- <script src="../js/jquery-weui.js"></script> -->
+    <!-- 引入微信js sdk -->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        // sdk接口注入
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wxbdfb12a3d586f09b', // 必填，公众号的唯一标识
+            timestamp: 1548490279, // 必填，生成签名的时间戳
+            nonceStr: 'Wm3WZYTPz0w0ccnW', // 必填，生成签名的随机串
+            signature: '38edbdb01305171017ba593254ebb743b1073016', // 必填，签名
+            jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表
+        });
+
+        wx.ready(function () {
+
+            //config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+           document.querySelector('#onMenuShareAppMessage').onclick = function () {
+           wx.onMenuShareAppMessage({
+             title: '互联网之子',
+             desc: '在长大的过程中，我才慢慢发现，我身边的所有事，别人跟我说的所有事，那些所谓本来如此，注定如此的事，它们其实没有非得如此，事情是可以改变的。更重要的是，有些事既然错了，那就该做出改变。',
+             link: 'http://movie.douban.com/subject/25785114/',
+             imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+             trigger: function (res) {
+               // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+               alert('用户点击发送给朋友');
+             },
+             success: function (res) {
+               alert('已分享');
+             },
+             cancel: function (res) {
+               alert('已取消');
+             },
+             fail: function (res) {
+               alert(JSON.stringify(res));
+             }
+           });
+           alert('已注册获取“发送给朋友”状态事件');
+         };
+            // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+            document.querySelector('#onMenuShareTimeline').onclick = function () {
+            wx.onMenuShareTimeline({
+            title: '互联网之子',
+            link: 'http://movie.douban.com/subject/25785114/',
+            imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg',
+            trigger: function (res) {
+            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+            alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+            alert('已分享');
+            },
+            cancel: function (res) {
+            alert('已取消');
+            },
+            fail: function (res) {
+            alert(JSON.stringify(res));
+            }
+            });
+            alert('已注册获取“分享到朋友圈”状态事件');
+            };
+
+        });
+
+        wx.error(function (res) {
+
+            // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+
+        });
+    </script>
+
+    <script>
+        $("#time-format").datetimePicker({
+            title: '请选择时间',
+            yearSplit: '年',
+            monthSplit: '月',
+            dateSplit: '日',
+            times: function () {
+                return [ // 自定义的时间
+                    {
+                        values: (function () {
+                            var hours = [];
+                            for (var i = 0; i < 24; i++) hours.push(i > 9 ? i : '0' + i);
+                            return hours;
+                        })()
+                    },
+                    {
+                        divider: true, // 这是一个分隔符
+                        content: '时'
+                    },
+                    {
+                        values: (function () {
+                            var minutes = [];
+                            for (var i = 0; i < 59; i++) minutes.push(i > 9 ? i : '0' + i);
+                            return minutes;
+                        })()
+                    },
+                    {
+                        divider: true, // 这是一个分隔符
+                        content: '分'
+                    }
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
+        //    alert提示
+
+        $(document).on("click", "#show-custom", function () {
+            $.modal({
+                title: "创建成功",
+                text: "快去告诉你的小伙伴吧！",
+                buttons: [{
+                        text: "确定",
+                        onClick: function () {
+                            // $.alert("点击跳转至饭局页面<a href="chat.html"></a>);
+                        }
+                    },
+                    {
+                        text: "取消",
+                        className: "default"
+                    },
+                ]
+            });
+        });
+    
+        // geturl
+        //获取url中的参数
+        
+            function getUrlParam(key){
+            // 获取参数
+            var url = window.location.search;
+            //window.search 取到的是一串带参数的字符串
+
+            // 正则筛选地址栏
+            var reg = new RegExp("(^|&)"+ key +"=([^&]*)(&|$)");
+            // 匹配目标参数
+            var result = url.substr(1).match(reg);
+            //返回参数值
+            return result ? decodeURIComponent(result[2]) : null;
+            }
+
+        
+            $('#chose_box_1').text(getUrlParam('address'));
+            // $('.chose_box_2').text(getUrlParam('address'));
+            // $('.chose_box_3').text(getUrlParam('phone'));
+
+    
+        </script>
+        <script  type="text/javascript">
+            //下拉选项
+            var datas =[
+            {"id":"2","text":"客家饭馆"},
+            {"id":"4","text":"万秋楼"},
+            {"id":"3","text":"客家风味园"},
+            {"id":"5","text":"金苑(万象店)"},
+            {"id":"7","text":"阿具客家菜(金燕大道店)"},
+            {"id":"6","text":"客家菜(金燕大道店)"},
+            {"id":"8","text":"五华鱼生"},
+            {"id":"9","text":"肯爷爷"},
+            {"id":"11","text":"金拱门"},
+            {"id":"10","text":"勤燕烧卖店"},
+            {"id":"12","text":"丰发海鲜大酒楼"},
+            {"id":"14","text":"金山刘氏牛杂"},
+            {"id":"13","text":"五粥四海(总店)"},
+            {"id":"15","text":"麻辣英雄重庆老火锅(万象汇店)"},
+            {"id":"16","text":"上岛咖啡(梅江店)"},
+            {"id":"18","text":"聚园(定民路店)"},
+            {"id":"19","text":"柠檬鱼(新苑路店)"},
+            {"id":"20","text":"百佳园酒楼(梅松店)"},
+            {"id":"16 ","text":"百佳园酒楼(梅松店)"},
+            {"id":"21","text":"百佳园酒楼(梅松店)"}];
+
+            $.selectSuggest('testInput',datas);
+         </script>
+
+</body>
+
+</html>

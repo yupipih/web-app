@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable = no">
+    <style type="text/css">
+        body,
+        html,
+        #allmap {
+            width: 100%;
+            height: 98%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+            pointer-events: auto;
+        }
+    </style>
+    <!--引入地图包，地图包网址的ak属性是你在百度地图开放平台上申请的秘钥-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0yfSc98kIspBnnaG99Hw0665ic8o753o"></script>
+    <!--引入jquery-->
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <title>选取地址</title>
+
+</head>
+
+<body>
+    <!--我们要在这里创建地图实例，这个div容器的id属性会在后面用到-->
+    <div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+        // 百度地图API功能
+        var map = new BMap.Map("allmap"); // 创建Map实例
+        map.centerAndZoom("梅州市", 15); // 初始化地图,设置中心点坐标和地图级别
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes: [
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]
+        }));
+        // map.setCurrentCity("北京");
+
+        var xArr = []; //存放横坐标
+        var yArr = []; //存放纵坐标
+        map.addEventListener("touchstart", function (e) {
+            //手指触摸屏幕的时候清空两个数组
+            xArr.length = 0;
+            yArr.length = 0;
+        });
+
+        map.addEventListener("touchmove", function (e) {
+            //如果滑动了屏幕，xArr和yArr将各存入两个坐标值，即始末坐标值
+            xArr.push(e.targetTouches[0].pageX);
+            yArr.push(e.targetTouches[0].pageY);
+        });
+
+        map.addEventListener('touchend', function (e) {
+            var far;
+            var flag = true;
+            //计算平移距离，区分滑动事件和点击事件
+            if ((xArr.length > 1) && (yArr.length > 1)) {
+                far = (Math.abs(xArr[0] - xArr[1])) ^ 2 + (Math.abs(yArr[0] - yArr[1])) ^ 2;
+                if (far > 0) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                map.clearOverlays();
+                //获取经纬度
+                point = new BMap.Point(e.point.lng, e.point.lat);
+                //将标注添加到地图上
+                var geoc = new BMap.Geocoder();
+                geoc.getLocation(point, function (rs) {
+                    var addComp = rs.addressComponents;
+                    // alert(addComp.province + addComp.city + addComp.district + addComp.street +
+                    //     addComp.streetNumber + "," + e.point.lng + "," + e.point.lat);
+                    // console.log(addComp.province + addComp.city + addComp.district + addComp.street +
+                    //     addComp.streetNumber + "," + e.point.lng + "," + e.point.lat);
+
+                    var string1 = addComp.province + addComp.city + addComp.district + addComp.street +
+                        addComp.streetNumber;
+                    var string2 = e.point.lng;
+                    var string3 = e.point.lat;
+                    alert(string1);
+
+                    location.href = "add_group.html?address=" + string1 + "&lng=" + string2 + "&lat=" +
+                        string3 + ""
+
+
+                });
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+                document.getElementById("allmap").value = e.point.lng + "," + e.point.lat;;
+            }
+        });
+
+
+    };
+</script>

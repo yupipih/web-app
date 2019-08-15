@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>约八</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/weui.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link rel="stylesheet" href="css/demos.css">
+    <link rel="stylesheet" href="css/mescroll.css">
+    <link rel="stylesheet" href="css/main-scroll.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="http://cdn.ronghub.com/RongIMLib-2.3.5.min.js"></script>
+    <script src="js/emoji.js"></script>
+</head>
+
+<body ontouchstart>
+
+    <!-- topbox -->
+    <div id="top_box">
+
+        <div id="top_title">
+            <a href="index.html">
+                <img src="img/left.png" class="left_nav">
+            </a>
+            <div class="top_title_txt">约八聊天室（123）</div>
+            <a href="chat_infor.html">
+                <div class="top_title_right"><img src="img/more.png" style="width: 1.7rem;height: 1.6rem;margin-left: 0.5rem;margin-top: 0.6rem;float: left"></div>
+            </a>
+        </div>
+
+    </div>
+    <!--滑动区域-->
+
+    <div id="mescroll" class="mescroll">
+            <p class="notice">下拉获取历史记录</p>
+            <ul id="newsList" class="news-list">
+            </ul>
+            <div class="saying">
+                <img src="img/saying.gif">
+            </div>
+    </div>
+
+            <!-- inputbox -->
+            <div class="saying">
+                <img src="img/saying.gif">
+            </div>
+
+            <div class="wenwen-footer">
+
+                <div class="wenwen_btn left" onClick="to_write()"><img src="img/yy_btn.png"></div>
+                <div class="wenwen_text left">
+                    <div class="write_box">
+                        <input type="text" class="left" placeholder="请输入关键字" id="inputBox" />
+                    </div>
+                    <div class="circle-button" id="wenwen">
+                        按住 说话
+                    </div>
+                </div>
+                <div class="wenwen_bq left" id="emoji"><a href="javascript:showbq()" id="change1"><img src="img/bq.png"></a></div>
+                <div class="wenwen_more left"><a href="javascript:show()" id="change"><img src="img/help_btn.png"></a></div>
+
+                <div class="wenwen_help left"><button onClick="getMessage()" class="right" id="send">发送</button></div>
+
+                <div style="opacity:0;" class="clear"></div>
+
+                <div class="box-1">
+                    <div id="text1" class="emoji-box" style="display:none;width: 100%;height: 120px;">
+                        
+                    </div>
+                </div>
+
+                <div class="box-1">
+                    <div class="text" id="more1" style="display:none;width: 100%;height: 120px;">
+
+                        <div class="pic_upload">
+                            <div id="upload_img" class="upload_img"><img src="img/pz.png" style="width: 100%;height: 100%"></div>
+                        </div>
+                        <div class="location_upload">
+                            <div id="getLocation" class="upload_img"><img src="img/wz.png" style="width: 100%;height: 100%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+</body>
+
+</html>
+<script src="js/mescroll.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/scroll_main.js"></script>
+<!-- 引入微信js sdk -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/wx.js"></script>
+<script src="js/rongcloud.js"></script>
+<script type="text/javascript" src="js/chat.main.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="http://cdn.ronghub.com/RongEmoji-2.2.7.min.js"></script>
+<script>
+    function show() {
+        document.getElementById("more1").style.display = "block";
+        // document.getElementById("change").innerHTML="查找-";
+        document.getElementById("change").href = "javascript:hide()";
+        document.getElementById("text1").style.display = "none";
+    }
+
+    function hide() {
+        document.getElementById("more1").style.display = "none";
+        // document.getElementById("change").innerHTML="查找+";
+        document.getElementById("change").href = "javascript:show()";
+    }
+
+    function showbq() {
+        document.getElementById("text1").style.display = "block";
+         document.getElementById("more1").style.display = "none";
+        // document.getElementById("change").innerHTML="查找-";
+        document.getElementById("change1").href = "javascript:hidebq()";
+
+    }
+
+    function hidebq() {
+        document.getElementById("text1").style.display = "none";
+        // document.getElementById("change").innerHTML="查找+";
+        document.getElementById("change1").href = "javascript:showbq()";
+    };
+   
+   document.getElementById("inputBox").addEventListener("focus", myFunction);
+    function myFunction() {
+         document.getElementById("text1").style.display = "none";
+         document.getElementById("more1").style.display = "none";
+    }
+</script>
